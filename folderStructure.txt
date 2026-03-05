@@ -1,0 +1,96 @@
+try to follow this folder struture in case if you forget have a look
+
+src
+│
+├── app
+│   ├── router.jsx
+│   ├── store.js
+│   └── providers.jsx
+│
+├── layouts
+│   ├── Layout.jsx
+│   └── RootLayout.jsx
+│
+├── routes
+│   ├── ProtectedRoute.jsx
+│   └── RouteError.jsx
+│
+├── features
+│   │
+│   ├── home
+│   │   ├── pages
+│   │   │   └── HomePage.jsx
+│   │   ├── components
+│   │   └── hooks
+│   │
+│   ├── blog
+│   │   ├── pages
+│   │   │   ├── Blog.jsx
+│   │   │   └── BlogDetail.jsx
+│   │   ├── components
+│   │   └── api
+│   │
+│   ├── auth
+│   │   ├── pages
+│   │   │   └── LoginPage.jsx
+│   │   ├── components
+│   │   ├── hooks
+│   │   └── authSlice.js
+│   │
+│   ├── fashion
+│   │   ├── pages
+│   │   │   ├── MensFashion.jsx
+│   │   │   ├── WomensFashion.jsx
+│   │   │   └── UnisexFashion.jsx
+│   │   └── components
+│   │
+│   ├── products
+│   │   ├── pages
+│   │   │   ├── ProductDetailPage.jsx
+│   │   │   └── PerfumeDetailPage.jsx
+│   │   ├── components
+│   │   └── api
+│   │
+│   ├── cart
+│   │   ├── pages
+│   │   │   └── CartPage.jsx
+│   │   ├── components
+│   │   └── cartSlice.js
+│   │
+│   ├── order
+│   │   ├── pages
+│   │   │   └── Payment.jsx
+│   │   └── api
+│   │
+│   └── user
+│       ├── pages
+│       │   └── UserProfile.jsx
+│       ├── components
+│       └── api
+│
+├── components
+│   ├── ui
+│   │   ├── Button.jsx
+│   │   ├── Input.jsx
+│   │   └── Modal.jsx
+│   │
+│   ├── navbar
+│   ├── footer
+│   └── loader
+│
+├── hooks
+│   ├── useAuth.js
+│   └── useDebounce.js
+│
+├── services
+│   ├── apiClient.js
+│   └── endpoints.js
+│
+├── utils
+│   ├── formatDate.js
+│   └── constants.js
+│
+├── styles
+│   └── global.css
+│
+└── main.jsx
