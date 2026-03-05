@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { type RootState } from '../store';
-import { loginStart, loginSuccess, loginFailure, logout,rehydrate  } from '../store/slices/authSlice';
+import { type RootState } from '../app/store';
+import { loginStart, loginSuccess, loginFailure, logout,rehydrate  } from '../app/store/slices/authSlice';
 import { api } from '../lib/api';
 import { useEffect } from 'react';
 import { authStorage } from '../lib/authStorage';
