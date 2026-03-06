@@ -1,13 +1,14 @@
 import { Suspense, type JSX } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import RouteError from "../routes/routeError";
+import Layout from "../layouts/layout";
+// import NotFound from "../pages/notFound";
 
 const withSuspense = (element: JSX.Element) => (
   <Suspense
     fallback={
       <div className="w-full h-screen flex items-center justify-center text-xl font-semibold">
-        {/* create your own custom loader for each application. */}
-        {/* <Loader /> */} Loading....
+        Loading....
       </div>
     }
   >
@@ -15,68 +16,118 @@ const withSuspense = (element: JSX.Element) => (
   </Suspense>
 );
 
+import { useNavigate } from "react-router-dom";
+
+//! create this in the seprate file later
+// eslint-disable-next-line react-refresh/only-export-components
+function NotFound() {
+  const navigate = useNavigate();
+
+  return (
+    <div className="w-full h-screen flex flex-col items-center justify-center gap-6">
+      <h1 className="text-6xl font-bold">404</h1>
+
+      <p className="text-gray-600 text-lg">
+        The page you are looking for does not exist.
+      </p>
+
+      <button
+        onClick={() => navigate("/")}
+        className="px-6 py-3 bg-black text-white rounded hover:opacity-80"
+      >
+        Go Back Home
+      </button>
+    </div>
+  );
+}
+
 // ROUTER
 export const router = createBrowserRouter([
   {
-    element: <Layout />, // create Different layout for the different projects
+    element: <Layout />,
     errorElement: <RouteError />,
     children: [
       {
         path: "/",
-        element: withSuspense(<HomePage />),
+        element: withSuspense(<NotFound />),
       },
+
       { path: "*", element: <NotFound /> },
-      { path: "blog", element: <Blog /> },
-      { path: "blog/:id", element: <BlogDetail /> },
-      { path: "faqs", element: withSuspense(<FAQSection />) },
-      { path: "our-story", element: withSuspense(<OurStory />) },
+
+      { path: "blog", element: withSuspense(<NotFound />) },
+
+      { path: "blog/:id", element: withSuspense(<NotFound />) },
+
+      { path: "faqs", element: withSuspense(<NotFound />) },
+
+      { path: "our-story", element: withSuspense(<NotFound />) },
+
       {
         path: "privacy-policy",
-        element: withSuspense(<PrivacyPolicySection />),
+        element: withSuspense(<NotFound />),
       },
+
       {
         path: "terms-conditions",
-        element: withSuspense(<TermsConditionsSection />),
+        element: withSuspense(<NotFound />),
       },
+
       {
         path: "return-policy",
-        element: withSuspense(<ReturnPolicySection />),
+        element: withSuspense(<NotFound />),
       },
-      { path: "login", element: withSuspense(<LoginPage />) },
-      { path: "fashion/men", element: withSuspense(<MensFashion />) },
+
+      { path: "login", element: withSuspense(<NotFound />) },
+
+      { path: "fashion/men", element: withSuspense(<NotFound />) },
+
       {
         path: "fashion/women",
-        element: withSuspense(<WomensFashion />),
+        element: withSuspense(<NotFound />),
       },
+
       {
         path: "fashion/unisex",
-        element: withSuspense(<UnisexFashion />),
+        element: withSuspense(<NotFound />),
       },
-      { path: "glowrituals", element: withSuspense(<GlowRituals />) },
-      // { path: "/analytics", element: withSuspense(<Analytics />) },
+
+      { path: "glowrituals", element: withSuspense(<NotFound />) },
+
       {
-        element: withSuspense(<ProtectedRoute />),
+        element: withSuspense(<NotFound />),
         children: [
           {
             path: "/app",
-            // element: withSuspense(<Layout />),
             children: [
               {
                 index: true,
                 element: <NotFound />,
               },
+
               {
                 path: "glowdetail/:id",
-                element: withSuspense(<PerfumeDetailPage />),
+                element: withSuspense(<NotFound />),
               },
+
               {
                 path: "detailpage/:id",
-                element: withSuspense(<ProductDetailPage />),
+                element: withSuspense(<NotFound />),
               },
-              { path: "cart", element: withSuspense(<CartPage />) },
-              { path: "order", element: withSuspense(<Payment />) },
-              { path: "profile", element: withSuspense(<UserProfile />) },
-              // Add more lazy pages here
+
+              {
+                path: "cart",
+                element: withSuspense(<NotFound />),
+              },
+
+              {
+                path: "order",
+                element: withSuspense(<NotFound />),
+              },
+
+              {
+                path: "profile",
+                element: withSuspense(<NotFound />),
+              },
             ],
           },
         ],
